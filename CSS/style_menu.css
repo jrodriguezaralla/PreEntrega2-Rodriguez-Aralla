@@ -1,0 +1,107 @@
+/*se coloca un color de fonde gris para que resalte texto e imagen*/
+body{
+    background-color: #efefef;
+}
+
+/*Se genera un display grid para ubicar las iamgenes en el centro y espaciadas equitativamente*/
+section{
+    display: grid;
+    gap: 1rem;
+    padding: 1rem 1rem;
+        
+    /*Con estas líneas realizo un diseño reponsive*/
+    grid-template-columns: repeat(auto-fill, minmax(20rem,24%));/*a medida que se achica la pantalla se autoajustan las imagen hacia abajo tipo flex-wrap*/
+    grid-auto-rows: 400px; /*se le da el alto de los divs*/
+    
+    /*alineacion de imagenes en el centro*/
+    align-content: center;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+}
+
+/*Se quita el borde de las imagenes y se redondea esquinas*/
+section div {
+    border: none;
+    border-radius: 1rem;
+    height: 400px;
+}
+
+/*se cargan las imagenes de fondo en los DIVS*/
+.img_pizzas{
+    background-image: url(../Imagenes/pizza.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img_empanadas{
+    background-image: url(../Imagenes/empanadas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img_sandwich{
+    background-image: url(../Imagenes/sandwich.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img_helados{
+    background-image: url(../Imagenes/helados.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*propiedades de link*/
+section div a{
+    width: 100%; /*ocupa el ancho del div*/
+    height: 100%; /*ocupa el alto del div*/
+    text-decoration: none;
+    display: flex;
+    /*Se alinea texto*/
+    align-items: center;
+    justify-content: center;
+}
+
+/*Estilo textos*/
+section div a h3{
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+
+}
+
+/*comportamiento del shadow al pasar arriba de las imagenes*/
+section div:hover{
+    transition: box-shadow 0.3s ease; /*se agrega un retardo al shadow*/
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO TABLET-------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 1359px) {
+    section{
+        align-content: flex-start;
+    }
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 759px) {
+    /*Se reorganiza el section en filas*/
+    section{
+        row-gap: 1rem;
+        padding: 1rem;
+        align-content: flex-start;
+        grid-template-columns: 80%;
+        grid-template-rows: repeat(4,400px); /*se le da el alto de los divs*/
+    }
+}

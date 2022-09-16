@@ -1,0 +1,117 @@
+/*Se coloca imagen de fondo en el body*/
+body {
+    background-image: url(../Imagenes/pizza.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/*display grid para organizar los elementos*/
+section{
+    display: grid;
+    /*3 filas y 1 columna - Titulo, sabores y boton volver a la página menú*/
+    grid-template-columns: 100%;
+    grid-template-rows: 3rem 600px 40px;
+    align-content: space-around; /*posicionamiento horizontal repartido*/
+}
+
+/*Se quita formato a lista y se alínean ambos listados equitativamente en el centro*/
+section ul {
+    list-style: none;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+/*indico que los listados de sabores sean flex para poder posicionarlos*/
+.box_position{
+    display: flex;
+    width: 100%;
+}
+
+/*formato de los recuadros de las listas de sabores*/
+section ul div {
+    height: 600px;
+    background-color: #efefef;
+    border-radius: 0.5rem;
+    /*declaro un display flex para posicionar los listados*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/*formato de los diferentes sabores de pizzas*/
+section ul div p {
+    margin-left: 1rem; /*se le da una pequeña sangría con respecto al título*/
+    font-weight: bold;
+}
+
+/*formato de los ingredientes de los diferentes sabores de pizzas*/
+section ul div ul {
+    margin-left: 2rem;
+    font-style: italic;
+}
+
+/*formato del texto "NUESTRAS PIZZAS"*/
+section h1{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/*posicionamiento del botón volver a la página de menúes*/
+.button__position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*formato del texto dentro del botón*/
+.link_volver{
+    font-weight: bold;
+    text-decoration: none;
+    border: solid 1px;
+    text-align: center;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: #efefef;
+    padding: 0.5rem;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 1327px) {
+
+    /*redimensionamiento del section para que se autoajuste el menu*/
+    section {
+        height: calc(100vh - 140px);
+        align-content: start;
+        flex-wrap: wrap;
+        grid-template-rows: 3rem auto 40px;
+    }
+
+    /*Redimensionamiento de Título*/
+    section h1{
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    /*pposiciono el listado al inicio de la pantalla*/
+    section ul div{
+        width: 90%;
+        height: 800px;
+        justify-content: flex-start;
+    }
+
+    /*indico que los listados de sabores sean flex para poder posicionarlos*/
+    .box_position{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: scroll;
+        row-gap: 1rem;
+    }
+}

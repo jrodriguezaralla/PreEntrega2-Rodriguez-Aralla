@@ -1,0 +1,104 @@
+/*Se coloca imagen de fondo en el body*/
+body {
+    background-image: url(../Imagenes/empanadas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/*display grid para organizar los elementos*/
+section{
+    display: grid;
+    /*3 filas y 1 columna - Titulo, sabores y boton volver a la página menú*/
+    grid-template-columns: 100%;
+    grid-template-rows: 3rem auto 40px 40px;
+    align-content: space-around; /*posicionamiento horizontal repartido*/
+}
+
+/*Se quita el formato del listado y se le da uno nuevo*/
+section div ul {
+    list-style: none;
+    background-color: #efefef;
+    border-radius: 0.5rem;
+    width: auto; /*ancho de la caja contenedora con el texto de los sabores, es para centrar la misma*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*se le da un ancho a los items del listado para que queden un poco centrados*/
+section div ul li{
+    width: 55%;
+}
+
+/*pisicionamiento del cuadro con los sabores*/
+.listado__fondo{
+    display: flex;
+    justify-content: center;
+    
+}
+
+/*formato del texto "NUESTRAS EMPANADAS"*/
+section h1{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/*formato de las letras del listado de sabores*/
+.letras__estilo{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/*posicionamiento del botón volver a la página de menúes*/
+.button__position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*formato del texto dentro del botón*/
+.link_volver{
+    font-weight: bold;
+    text-decoration: none;
+    border: solid 1px;
+    text-align: center;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: #efefef;
+    padding: 0.5rem;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+    /*alineacion de elementos*/
+    section {
+        align-content: space-between;
+        row-gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    /*Redimensionamiento de título*/
+    section h1{
+        font-size: 1.8rem;
+    }
+
+    /*formato de las letras del listado de sabores*/
+    .letras__estilo{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    /*pisicionamiento del cuadro con los sabores*/
+    .listado__fondo{
+        align-items: center;
+    }
+
+}

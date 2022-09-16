@@ -1,0 +1,83 @@
+/*se coloca un color de fonde gris para que resalte texto e imagen*/
+body{
+    background-color: #efefef;
+}
+
+/*Se genera un display grid para ubicar las iamgenes en el centro y espaciadas equitativamente*/
+section{
+    display: grid;
+    gap: 1rem;
+    padding: 1rem 1rem;
+        
+    /*Con estas líneas realizo un diseño reponsive*/
+    grid-template-columns: repeat(auto-fill, minmax(19rem,19%)); /*a medida que se achica la pantalla se autoajustan las imagen hacia abajo tipo flex-wrap*/
+    grid-auto-rows: 400px; /*se le da el alto de los divs*/
+    
+    /*alineacion de imagenes en el centro*/
+    align-content: center;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+}
+
+section div{
+    border: none;
+    border-radius: 1rem;
+    background-image: url(../Imagenes/imagen_2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /*Sombra de los recuadors de las imagenes*/
+    text-shadow: 5px 5px 1px black;
+    box-shadow: 5px 5px 10px black;
+
+    /*se indica display flex para posicionar textos*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /*se agrega padding para separar texto de los bordes superiores e inferiores*/
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+/*posicionamiento de texto*/
+h3{
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+/*posicionamiento de texto*/
+section p{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 5px 5px 1px black;
+    color: white;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO TABLET-------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 1615px) {
+    section{
+        align-content: flex-start;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 600px) {
+    /*Se reorganiza el section en filas*/
+    section{
+        overflow-y: scroll;
+        row-gap: 1rem;
+        padding: 1rem;
+        align-content: flex-start;
+        grid-template-columns: 80%;
+        grid-template-rows: repeat(5,300px); /*se le da el alto de los divs*/
+    }
+}

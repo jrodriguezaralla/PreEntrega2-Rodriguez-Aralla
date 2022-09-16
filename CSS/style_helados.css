@@ -1,0 +1,104 @@
+/*Se coloca imagen de fondo en el body*/
+body {
+    background-image: url(../Imagenes/helados.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/*display grid para organizar los elementos*/
+section{
+    display: grid;
+    /*3 filas y 1 columna - Titulo, sabores y boton volver a la página menú*/
+    grid-template-columns: 100%;
+    grid-template-rows: 3rem 550px 40px;
+    align-content: space-evenly; /*posicionamiento horizontal repartido*/
+    justify-content: center;
+}
+
+/*Se quitan los bullets a la lista principal*/
+section div ul {
+    list-style: none;
+}
+
+/*formato de título opciones dentro del listado*/
+section div p{
+    font-size: 1rem;    
+    font-weight: bold;
+}
+
+/*formato del box contenedor del lsitado*/
+.box__formato{
+    background-color: #efefef;
+    border-radius: 0.5rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+/*posicionamiento de box contenedor de opciones*/
+.box__posicionamiento{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+/*formato texto "Nuestros Helados"*/
+section h1{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/*agrego formato a los subitems del listado*/
+.lista_estilo{
+    list-style-type: disc;/*se agregan discos*/
+    margin-left: 2rem; /*se le da una sangria*/
+}
+
+/*posicionamiento del botón volver a la página de menúes*/
+.button__position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*formato del texto dentro del botón*/
+.link_volver{
+    font-weight: bold;
+    text-decoration: none;
+    border: solid 1px;
+    text-align: center;
+    border-radius: 0.5rem;
+    color: black;
+    background-color: #efefef;
+    padding: 0.5rem;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+    /*alineacion de elementos*/
+    section {
+        grid-template-rows: 3rem 30rem 40px;
+    }
+
+    /*Redimensionamiento de título*/
+    section h1{
+        font-size: 1.5rem;
+    }
+
+        /*formato del box contenedor del lsitado*/
+    .box__formato{
+        width: 70%;
+        justify-content: flex-start;
+        overflow-y: scroll;
+    }
+}

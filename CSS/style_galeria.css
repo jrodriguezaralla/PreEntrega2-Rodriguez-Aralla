@@ -1,0 +1,10 @@
+/*en el section se colocan todas las imagenes*/
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+

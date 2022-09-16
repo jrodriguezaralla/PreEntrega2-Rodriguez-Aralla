@@ -1,0 +1,217 @@
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------INICIALIZACION-------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* Reseteo de pantalla */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Se modifica la fuente del documento y se indica que ocupe el ancho del navegador */
+html{
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------ESTILO BODY--------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/*Se define el body como grid padre y dentro de el los hijos header, section y footer*/
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "section"
+    "footer";
+    grid-template-columns: 100vw;
+    grid-template-rows: 70px 1fr 70px;
+    align-content: space-between;
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------ESTILO HEADER--------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/*se oculta y se le da formato al icono que abre menu de navegación*/
+.NavBtn{
+    color: white;
+    display: none;
+    padding-right: 1rem;
+    font-size: 30px;
+}
+
+/*elimino el recuadro de check list*/
+#check{
+    display: none;
+}
+
+/*Se define el header como flex para posicionar imagen y menu de navegación*/
+header {
+    grid-area: header;
+    /* background-color: rgb(9, 48, 9); */
+    /* background: linear-gradient(90deg, rgba(0,146,70,1) 17%, rgba(242,242,242,1) 33%, rgba(242,242,242,1) 66%, rgba(222,131,138,1) 79%, rgba(206,43,55,1) 100%); */
+    background: linear-gradient(to right,white,rgb(9, 48, 9));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Se retoca un poco la posición de la imagen*/
+header img{
+    padding: 0.3rem;
+    margin-left: 1rem;
+}
+
+/*Se declara a la lista contenedora del menú de navegación como flex para alinear los items*/
+header ul{
+    height: 70px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/*Se indica que la lista se posicione en línea y el texto alineado al centro del contenedor*/
+header ul li {
+    height: 70px;
+    display: inline-block;
+    text-align: center;
+}
+
+/*Se le da formato a las diferentes opciones del menú de navegación*/
+header ul li a{
+    /*formato del texto */
+    height: 70px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    /*alineacion texto*/
+    display: flex;
+    align-items: center;
+}
+
+/*Al pasar por arriba del link se pinta el fonde del contenedor de color gris*/
+header ul li a:hover{
+    /*al pasar el cursor por el link aparece una manito*/
+    cursor: pointer;
+    background: grey;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 1);
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------ESTILO FOOTER--------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/*Se declara el footer como flex para posicionar elementos*/
+footer{
+    grid-area: footer;
+    /* background-color: rgb(9, 48, 9); */
+    /* background: linear-gradient(90deg, rgba(0,146,70,1) 17%, rgba(242,242,242,1) 33%, rgba(242,242,242,1) 66%, rgba(222,131,138,1) 79%, rgba(206,43,55,1) 100%); */
+    background: linear-gradient(to left,white,rgb(9, 48, 9));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Dentro del footer se alinean los logos de redes sociales*/
+footer div{
+    display: flex;
+}
+
+/*posiciono links de redes sociales y los acomodo*/
+footer div a{
+    padding-left: 10px;
+    padding-right: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/*Se le da color a las letras de Copyright y un padding left para separarlo del borde*/
+footer p{
+    padding: 10px;
+    color: white;
+}
+
+/*Customizacion de animación de libreria*/
+.animacion_pulse {
+    animation: pulse; /* Se hace referncia a la animación*/
+    animation-iteration-count: infinite; /*Se setea iteracion*/
+    /* animation-duration: 10s; */
+    --animate-duration: 2s; /*se setea la duracion de la animacion*/
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO TABLET-------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    /*Se le da formato a las diferentes opciones del menú de navegación*/
+    header ul li a{
+        font-size: 0.75rem;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------COMPORTAMIENTO DE PANTALLA TAMAÑO CEL--------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+    /*Se hace visible el boton de navegación*/
+    .NavBtn{
+        display: block;
+    }
+    
+    /*Customización de menú de navegación*/
+    header ul{
+        /*Poisiconamiento de menú en forma vertical*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        left: -100%;
+        z-index: 1;/*se aplica un z-index para que el menú aparezca sobre cualquier fondo*/
+        /*Se posicione el Menu*/
+        position: fixed; /*Posicionamiento fijo*/
+        width: 100%; /*que ocupe el 100% de la pantalla*/
+        height: calc(100vh - 140px); /*que el alto sea el View Port High menos el header y el footer*/
+        top: 70px; /*posicionado debajo del header*/
+        background-color: rgba(0, 0, 0, 0.7);
+
+        /*Animación para que aparezca de izquierda a derecha*/
+        transition: left 1s;
+    }
+    
+    /*se da formato al texto del menú de navegación*/
+    header ul li a{
+        padding: 0;
+        font-size: 1.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /*Pseudoclase que habilita que al presionar el botón de navegación, se posicionen la barra en la pantalla*/
+    #check:checked ~ ul{
+        left: 0;
+        
+    }
+
+    .footer__text-size{
+        font-size: 0.75rem;
+    }
+
+    .footer__iconos-padding{
+        padding-right: 15px;
+        padding-left: 5px;
+    }
+}
+
+
